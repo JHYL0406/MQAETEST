@@ -1,3 +1,0 @@
-select *
-
-from STUDENTDATA.student;

@@ -1,5 +1,5 @@
 SELECT
-    id as student_unit_id,
+    id as student_unit_enrolment_id,
     student_course_admission_id,
     unit_id,
     enrolment_date,

@@ -8,7 +8,7 @@ unit as (
 
 final as (
     select
-       student_unit_enrolment.student_unit_id,
+       student_unit_enrolment.student_unit_enrolment_id,
        student_unit_enrolment.student_course_admission_id,
        unit.unit_code,
        unit.unit_title,
@@ -23,6 +23,7 @@ final as (
     join unit using (unit_id)
 
     where student_unit_enrolment.enrolment_status != 'Planned'
+    and student_unit_enrolment.enrolment_date != '1900-01-01'
 )
 
 select * from final
