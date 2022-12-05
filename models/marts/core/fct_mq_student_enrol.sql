@@ -12,16 +12,17 @@ student_unit_enrolment as (
 
 final as (
     select
-        s.student_id as student_key,
-        c.student_course_admission_id as student_course_admission_key,
-        u.student_unit_enrolment_id as student_unit_enrolment_key
-    from student s
-
-    join student_course_admission c
-    on s.student_id=c.student_id
+        s.skey_student as student_key,
+        c.skey_course_admisison as student_course_admission_key,
+        u.skey_unit_enrolment as student_unit_enrolment_key
     
-    join student_unit_enrolment u
-    on c.student_course_admission_id=u.student_course_admission_id
+    
+    from student s
+      join student_course_admission c
+      on s.student_id=c.student_id
+    
+      join student_unit_enrolment u
+      on c.student_course_admission_id=u.student_course_admission_id
 
 )
 

@@ -1,7 +1,5 @@
-{{ config(materialized='append_only') }}
-
 with student_course_admission as (
-    select * from {{ ref('int_student_course_admission')}}
+    select * from {{ ref('int_student_course_admission') }}
 ),
 
 final as (

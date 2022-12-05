@@ -8,3 +8,5 @@ select
 
 
 from {{ source('mq','student_course_admission')}}
+
+where course_admission_status != 'Applied'

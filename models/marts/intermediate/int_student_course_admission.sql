@@ -8,6 +8,7 @@ course as (
 
 final as (
     select
+        {{ dbt_utils.surrogate_key('student_course_admission_id') }} as skey_course_admisison,
         student_course_admission.student_course_admission_id,
         student_course_admission.student_id,
         course.course_code,
@@ -19,6 +20,7 @@ final as (
 
     from student_course_admission
     join course using (course_id)
+
 )
 
 select * from final
