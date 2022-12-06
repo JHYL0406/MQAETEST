@@ -9,7 +9,7 @@
       unique_key='skey_unit_enrolment',
 
       strategy='check',
-      check_cols=['status', 'enrolment_status', 'mark'],
+      check_cols=['enrolment_status', 'mark'],
     )
 }}
 

@@ -1,0 +1,47 @@
+version: 2
+
+models:
+    - name: int_student
+      description: intermediate model for student
+      columns:
+        - name: skey_student
+          description: Surrogate key based on student_id
+          tests:
+            - unique
+            - not_null
+        - name: student_id
+        - name: first_name
+        - name: last_name
+        - name: email
+
+    - name: int_student_course_admission
+      description: intermediate model joining course and student_course_admission
+      columns:
+        - name: skey_course_admission
+          description: surrogate key based on student_course_admission_id
+          tests:
+            - unique
+            - not_null 
+
+    - name: int_student_unit_enrolment
+      description: intermediate model joining unit and student_unit_enrolment
+      columns:
+        - name: skey_unit_enrolment
+          description: surrogate key based on student_unit_enrolment_id
+          tests:
+            - unique
+            - not_null
+          name: enrolment_status
+          description: unit enrolment status
+          tests:
+           - accepted_values:
+              values:
+                - Enrolled
+                - Passed
+                - Failed
+                - Withdrawn
+                - Planned
+                - Designated
+                - Exempt
+
+    

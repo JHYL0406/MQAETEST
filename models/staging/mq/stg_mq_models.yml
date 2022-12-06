@@ -6,6 +6,8 @@ models:
     columns:
       - name: student_id
         descrition: primary key
+      - name: first_name
+      - name: last_name
 
 
   - name: stg_course

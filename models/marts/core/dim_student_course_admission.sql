@@ -4,7 +4,7 @@ with student_course_admission as (
 
 final as (
     select
-        skey_course_admisison,
+        skey_course_admission,
         student_course_admission_id,
         course_code,
         course_title,

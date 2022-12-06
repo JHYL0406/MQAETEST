@@ -12,9 +12,9 @@ student_unit_enrolment as (
 
 final as (
     select
-        s.skey_student as student_key,
-        c.skey_course_admisison as student_course_admission_key,
-        u.skey_unit_enrolment as student_unit_enrolment_key
+        s.skey_student as skey_student,
+        c.skey_course_admission as skey_course_admission,
+        u.skey_unit_enrolment as skey_unit_enrolment
     
     
     from student s
