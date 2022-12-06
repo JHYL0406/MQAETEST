@@ -4,4 +4,4 @@ select
     unit_title,
     unit_credit_point
 
-from {{source('mq','unit')}}
+from {{ source('mq','unit') }}

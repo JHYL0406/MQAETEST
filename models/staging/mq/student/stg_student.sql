@@ -4,4 +4,4 @@ select
     last_name,
     email
 
-from {{source('mq','student')}}
+from {{ source('mq','student') }}

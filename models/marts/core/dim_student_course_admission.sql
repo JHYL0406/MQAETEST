@@ -3,7 +3,14 @@ with student_course_admission as (
 ),
 
 final as (
-    select *
+    select
+        skey_course_admisison,
+        student_course_admission_id,
+        course_code,
+        course_title,
+        course_admission_status,
+        status_effective_date,
+        admission_year
 
     from student_course_admission
 )

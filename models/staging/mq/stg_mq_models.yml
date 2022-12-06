@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_student
+    description: student staging
+    columns:
+      - name: student_id
+        descrition: primary key
+
+
+  - name: stg_course
+    description: course staging
+    columns:
+      - name: course_id
+
+  - name: stg_student_course_admission
+    description: course admission staging data
+    columns:
+      - name: student_course_admission_id
+
+
+  - name: stg_unit
+    description: unit staging data
+    columns:
+      - name: unit_id
+
+  - name: stg_student_unit_enrolment
+    description: unit enrolment staging data
+    columns:
+      - name: student_unit_enrolment_id

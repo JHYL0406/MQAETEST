@@ -1,13 +1,13 @@
 with student as (
-    select * from {{ ref('dim_student')}}
+    select * from {{ ref('int_student')}}
 ),
 
 student_course_admission as (
-    select * from {{ ref('dim_student_course_admission') }}
+    select * from {{ ref('int_student_course_admission') }}
 ),
 
 student_unit_enrolment as (
-    select * from {{ ref('dim_student_unit_enrolment') }}
+    select * from {{ ref('int_student_unit_enrolment') }}
 ),
 
 final as (
