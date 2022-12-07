@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: dim_student
+    description: student dimension table model
+    columns:
+      - name: skey_student
+        description: primary key
+
+  - name: dim_student_course_admission
+    description: student course admission dimension table model
+    columns:
+      - name: skey_course_admission
+        description: primary key
+
+  - name: dim_student_unit_enrolment
+    description: student unit enrolment dimension table model
+    columns:
+      - name: skey_unit_enrolment
+        description: primary key
+
+
+  - name: fct_mq_student_enrol
+    description: fact table
+    columns:
+    - name: skey_student
+      description: primary key and foreign key referencing dim_student
+
+    - name: skey_course_admission
+      description: primary key and foreign key referencing dim_student_course_admission
+
+    - name: skey_unit_enrolment
+      description: primary key and foreign key referencing dim_student_unit_enrolment
+
+

@@ -1,1 +1,1 @@
-SELECT * FROM {{ref('stg_student')}}
+select * from {{ ref('int_student') }}

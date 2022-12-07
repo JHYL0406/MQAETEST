@@ -3,8 +3,16 @@ with student_unit_enrolment as (
 ),
 
 final as (
-    select *
-
+    select
+        skey_unit_enrolment,
+        student_unit_enrolment_id,
+        unit_code,
+        unit_title,
+        unit_credit_point,
+        census_date,
+        enrolment_status,
+        fee_amount,
+        unit_mark
 
     from student_unit_enrolment
 )

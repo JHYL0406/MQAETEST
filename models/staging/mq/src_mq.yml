@@ -1,0 +1,100 @@
+version: 2
+
+sources:
+  - name: mq
+    description: csv import in snowflake
+    database: MQAE
+    schema: studentdata
+    tables:
+      - name: course
+        description: mq course data
+        columns:
+          - name: id
+            description: primary key of course table
+            tests:
+              - not_null
+              - unique
+          - name: course_code
+            description: course code from AMIS. coursework course code from 2020 are generated from cms
+          - name: course_title
+            description: Full title of the course
+          
+      - name: student
+        description: student data
+        columns:
+          - name: id
+            description: primaryt key for student table. student ID is generated from AMIS.
+            tests:
+              - not_null
+              - unique
+
+      - name: student_course_admission
+        description: student course data
+        columns:
+          - name: id
+            description: primary key for student_course_admission table
+            tests:
+              - not_null
+              - unique
+          - name: student_id
+            description: foreign key referencing student table
+          - name: course_id
+            description: foreign key referencing course table
+          - name: course_admission_status
+            description: student's current course status
+            tests:
+              - accepted_values:
+                  values:
+                    - Applied
+                    - Admitted
+                    - Withdrawn
+                    - Completed
+          - name: status_effective_date
+            description: effective date of the student course admission status
+          - name: admission_year
+            description: commencing year of the student in the specific course
+
+      - name: unit
+        description: mq unit data
+        columns:
+          - name: id
+            description: primary key for unit table
+            tests:
+              - not_null
+              - unique
+          - name: unit_code
+            description: unit code from cms
+          - name: unit_title
+            description: full title of the unit. may varie year to year.
+          - name: unit_credit_point
+            description: credit point value of the unit
+
+      - name: student_unit_enrolment
+        description: student unit enrolment data
+        columns:
+          - name: id
+            description: primary key for student_unit_enrolment table
+            tests:
+              - not_null
+              - unique
+          - name: student_course_admission_id
+            description: foreign key referencing student_course_admission table
+          - name: unit_id
+            description: foreign key referencing unit table
+          - name: enrolment_date
+            description: census date of the unit
+          - name: enrolment_status
+            description: current status of the unit
+            tests:
+              - accepted_values:
+                  values:
+                    - Enrolled
+                    - Passed
+                    - Failed
+                    - Withdrawn
+                    - Planned
+          - name: fee_amount
+            description: unit fee amount
+          - name: unit_mark
+            description: student's final mark. enrolment_status should be passed or failed.
+          
